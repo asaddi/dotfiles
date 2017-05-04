@@ -55,5 +55,9 @@ changeset.draft=brightyellow bold
 
 desc.here=bold blue_background
 
+status.ignored = white
+branches.closed = white
+tags.local = white
+
 [alias]
 wip = log --graph --rev=wip --template=wip
