@@ -1,7 +1,5 @@
 export CLICOLOR=
 
-alias hg='hg --config color.mode=terminfo'
-
 autoload -U colors
 colors
 
