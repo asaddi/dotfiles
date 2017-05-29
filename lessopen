@@ -1,0 +1,20 @@
+#!/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin
+
+case "$1" in
+    *.tar.xz) xz -cd "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.tar.bz2) bunzip2 -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.tar.gz) gunzip -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.tar.Z) uncompress -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.jar) jar tvf "$1" 2>/dev/null ;;
+    *.war) jar tvf "$1" 2>/dev/null ;;
+    *.txz) xz -cd "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.tbz2) bunzip2 -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.xz) xz -cd "$1" 2>/dev/null ;;
+    *.bz2) bunzip2 -c "$1" 2>/dev/null ;;
+    *.tgz) gunzip -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.tar) tar -tvf "$1" 2>/dev/null ;;
+    *.zip) unzip -l "$1" 2>/dev/null ;;
+    *.gz) gunzip -c "$1" 2>/dev/null ;;
+    *.Z) uncompress -c "$1" 2>/dev/null ;;
+esac
