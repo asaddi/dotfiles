@@ -19,7 +19,7 @@ if [[ -o interactive ]]; then
     setopt shwordsplit globsubst cshnullglob
     unsetopt notify bgnice hup
 
-    alias v='ls -l'
+    alias v='ls -lh'
 
     autoload -U compinit
     autoload -U complist
