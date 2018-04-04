@@ -1,4 +1,5 @@
 export CLICOLOR=
+export GREP_OPTIONS=--color
 
 VCS_PROMPT_HG_ENABLE=true
 VCS_PROMPT_GIT_ENABLE=true
