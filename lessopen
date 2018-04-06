@@ -7,6 +7,7 @@ case "$1" in
     *.tar.gz) gunzip -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
     *.tar.Z) uncompress -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
     *.jar) jar tvf "$1" 2>/dev/null ;;
+    *.rar) unrar l "$1" 2>/dev/null ;;
     *.war) jar tvf "$1" 2>/dev/null ;;
     *.txz) xz -cd "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
     *.tbz2) bunzip2 -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
