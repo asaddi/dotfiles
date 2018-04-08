@@ -20,6 +20,7 @@ if [[ -o interactive ]]; then
     unsetopt notify bgnice hup
 
     alias v='ls -lh'
+    alias tmpssh='ssh -o "UserKnownHostsFile /dev/null"'
 
     autoload -U compinit
     autoload -U complist
