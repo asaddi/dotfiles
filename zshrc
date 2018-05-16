@@ -2,7 +2,7 @@ export CLICOLOR=
 export GREP_OPTIONS=--color
 
 activate() {
-    local root env_base env_activate
+    local root venv_base venv_activate
 
     [ -n "$VIRTUAL_ENV" ] && deactivate
 
@@ -12,17 +12,17 @@ activate() {
     fi
 
     if [ -n "$VENV_BASE" ]; then
-        env_base="$VENV_BASE"/$(basename "$root")
+        venv_base="$VENV_BASE"/$(basename "$root")
     else
-        env_base="$root"/.env
+        venv_base="$root"/.venv
     fi
 
-    env_activate="$env_base"/bin/activate
-    if [ -e "$env_activate" ]; then
-        . "$env_activate"
+    venv_activate="$venv_base"/bin/activate
+    if [ -e "$venv_activate" ]; then
+        . "$venv_activate"
         return 0
     else
-        echo "no virtualenv at $env_base" >&2
+        echo "no virtualenv at $venv_base" >&2
         return 1
     fi
 }
