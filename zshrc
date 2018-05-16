@@ -1,6 +1,32 @@
 export CLICOLOR=
 export GREP_OPTIONS=--color
 
+activate() {
+    local root env_base env_activate
+
+    [ -n "$VIRTUAL_ENV" ] && deactivate
+
+    root=$(hg root 2>/dev/null)
+    if [ -z "$root" ]; then
+        root="$PWD"
+    fi
+
+    if [ -n "$VENV_BASE" ]; then
+        env_base="$VENV_BASE"/$(basename "$root")
+    else
+        env_base="$root"/.env
+    fi
+
+    env_activate="$env_base"/bin/activate
+    if [ -e "$env_activate" ]; then
+        . "$env_activate"
+        return 0
+    else
+        echo "no virtualenv at $env_base" >&2
+        return 1
+    fi
+}
+
 VCS_PROMPT_HG_ENABLE=true
 VCS_PROMPT_GIT_ENABLE=true
 
