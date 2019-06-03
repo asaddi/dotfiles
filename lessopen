@@ -2,6 +2,8 @@
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin
 
 case "$1" in
+    *.tar.7z) 7za e -so "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.tar.lz4) lz4 -cd "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
     *.tar.xz) xz -cd "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
     *.tar.bz2) bunzip2 -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
     *.tar.gz) gunzip -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
@@ -11,6 +13,8 @@ case "$1" in
     *.war) jar tvf "$1" 2>/dev/null ;;
     *.txz) xz -cd "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
     *.tbz2) bunzip2 -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
+    *.7z) 7za l "$1" 2>/dev/null ;;
+    *.lz4) lz4 -cd "$1" 2>/dev/null ;;
     *.xz) xz -cd "$1" 2>/dev/null ;;
     *.bz2) bunzip2 -c "$1" 2>/dev/null ;;
     *.tgz) gunzip -c "$1" 2>/dev/null | tar -tvf - 2>/dev/null ;;
