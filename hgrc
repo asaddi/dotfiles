@@ -1,6 +1,7 @@
 [ui]
 username = Allan Saddi <allan@saddi.com>
 interface = curses
+merge = internal:merge3
 
 [extensions]
 purge =
