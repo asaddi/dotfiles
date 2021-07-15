@@ -8,5 +8,7 @@
 	root = !git rev-parse --show-toplevel
 	up = "!git remote update -p; git merge --ff-only @{u}"
 	exclude = !sh -c 'echo "$1" >> .git/info/exclude' -
+	wt = worktree
+	histgrep = "!git rev-list --all | xargs git grep"
 [merge]
 	ff = only
