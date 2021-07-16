@@ -12,5 +12,6 @@
 	histgrep = "!git rev-list --all | xargs git grep"
 	parent = show -q
 	tip = "!git show -q $(git rev-list --all --max-count=1)"
+	amend = commit --amend --no-edit
 [merge]
 	ff = only
